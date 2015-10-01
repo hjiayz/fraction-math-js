@@ -102,8 +102,8 @@ class F {
   }
   toString(){
     if (this.isNaN()) return BNaN.toString();
-    if (this.isInt()) return this.n.toString();
-    return this.value.join("/");
+    if (this.isInt()) return this.n.toFixed();
+    return [this.n.toFixed(),this.d.toFixed()].join("/");
   }
   plus(y){
     let x=this;

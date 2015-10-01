@@ -8,3 +8,5 @@ let a=new F(y,z,"+");
 console.log(a.toString());//35/3
 console.log(a.n.toString());//35
 console.log(a.d.toString());//3
+let b=new F(a,"+",1.1);
+console.log(b.toString());//383/30
