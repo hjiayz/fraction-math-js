@@ -42,6 +42,9 @@ npm install fraction-math-js -g
     
     console.log(a.d.toString());//3
     
+    let b=new F(a,"+",1.1);//a+1.1 = 383/30
+	
+    console.log(b.toString());//383/30
 ### Run
 
 	//save to sample.js and
