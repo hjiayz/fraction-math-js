@@ -6,6 +6,11 @@ const gcd=function(a,b){
   let gcdsub=(p1,p2)=>p1.isZero()?p2:gcdsub(p2.mod(p1),p1);
   return gcdsub(a.abs(),b.abs());
 }
+const reduction=function(n,d){//reduction of a fraction
+  let g=gcd(n,d);
+  return [n.dividedBy(g),d.dividedBy(g)];
+}
+const nsign=(n,d)=>(d.isNegative())?[n.times(-1),d.abs()]:[n,d];//set negative sign
 class Opt{
   constructor(opt){
     this.opt=opt;
@@ -66,7 +71,7 @@ class F {
       v=toBN(v);
       d=toBN(d);
       if (v.isInt()&&d.isInt())
-        return [toBN(v),toBN(d)];
+        return reduction(...nsign(v,d));
       let toF=(n)=>new F(...toFrac(n));
       return toF(v).dividedBy(toF(d));
     }
@@ -114,12 +119,7 @@ class F {
     let nx=px.times(x.n);
     let ny=py.times(y.n);
     let n=nx.plus(ny);
-    let g2=gcd(n,d);
-    if (d.isNegative()) {
-      d=d.abs();
-      n=n.times(-1);
-    }
-    let r=[n.dividedBy(g2),d.dividedBy(g2)];
+    let r=reduction(...nsign(n,d));
     return r;
   }
   minus(y){
@@ -134,11 +134,7 @@ class F {
     let g2=gcd(x.n,y.d);
     let d=x.d.dividedBy(g1).times(y.d.dividedBy(g2));
     let n=x.n.dividedBy(g2).times(y.n.dividedBy(g1));
-    if (d.isNegative()) {
-      d=d.abs();
-      n=n.times(-1);
-    }
-    let r=[n,d];
+    let r=nsign(n,d);
     return r;
   }
   dividedBy(y){
