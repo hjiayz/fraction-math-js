@@ -109,7 +109,7 @@ class F {
       },
       "d":{
         "writable":false
-    }
+      }
     });
     //define closure function for read the value;
   }
