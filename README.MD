@@ -25,16 +25,16 @@ npm install fraction-math-js -g
 
 	"use strict"
   
-    let F = require('fraction-math-js');
+    let F = require('fraction-math-js').builder;
     
 ### Use
-    let x=new F("1+2/3*5");//1+2/3*5 = 13/3
+    let x=F("1+2/3*5");//1+2/3*5 = 13/3
     
-    let y=new F("1+",x);//1+x = 16/3
+    let y=F("1+",x);//1+x = 16/3
     
-    let z=new F("+",1,y);//1+y = 19/3
+    let z=F("+",1,y);//1+y = 19/3
     
-    let a=new F(y,z,"+");//y+z = 35/3
+    let a=F(y,z,"+");//y+z = 35/3
     
     console.log(a.toString());//35/3
     
@@ -42,7 +42,7 @@ npm install fraction-math-js -g
     
     console.log(a.d.toString());//3
     
-    let b=new F(a,"+",1.1);//a+1.1 = 383/30
+    let b=F(a,"+",1.1);//a+1.1 = 383/30
 	
     console.log(b.toString());//383/30
 ### Run
@@ -50,4 +50,3 @@ npm install fraction-math-js -g
 	//save to sample.js and
   
 	> node --harmony --harmony_array_includes sample.js
-  

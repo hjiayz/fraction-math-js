@@ -119,10 +119,10 @@ class F {
     return [this.n.toFixed(),this.d.toFixed()].join("/");
   }
   toJSON(){
-	return this.toString();
+    return this.toString();
   }
   toBigNumber(){
-	return this.n.dividedBy(this.d);
+    return this.n.dividedBy(this.d);
   }
   plus(y){
     let x=this;
@@ -161,8 +161,14 @@ class F {
   isInt(){
     return this.d.eq(1);
   }
+  isNegative(){
+    return this.n.isNegative();
+  }
   get value(){
     return [this.n,this.d];//get value
+  }
+  static builder(...args){
+    return new F(...args);
   }
 }
 module.exports=F;
