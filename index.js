@@ -101,14 +101,28 @@ class F {
     catch (e){
       value=[BNaN,BNaN];
     }
-    this.getn=()=>value[0];
-    this.getd=()=>value[1];
+	this.n=value[0];//numerator
+	this.d=value[1];//denominator
+	Object.defineProperties(this,{
+	  "n":{
+		"writable":false
+	  },
+	  "d":{
+		"writable":false
+	  }
+	});
     //define closure function for read the value;
   }
   toString(){
     if (this.isNaN()) return BNaN.toString();
     if (this.isInt()) return this.n.toFixed();
     return [this.n.toFixed(),this.d.toFixed()].join("/");
+  }
+  toJSON(){
+	return this.toString();
+  }
+  toBigNumber(){
+	return this.n.dividedBy(this.d);
   }
   plus(y){
     let x=this;
@@ -146,12 +160,6 @@ class F {
   }
   isInt(){
     return this.d.eq(1);
-  }
-  get n(){//numerator
-    return this.getn();
-  }
-  get d(){//denominator
-    return this.getd();
   }
   get value(){
     return [this.n,this.d];//get value
