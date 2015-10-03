@@ -101,16 +101,16 @@ class F {
     catch (e){
       value=[BNaN,BNaN];
     }
-	this.n=value[0];//numerator
-	this.d=value[1];//denominator
-	Object.defineProperties(this,{
-	  "n":{
-		"writable":false
-	  },
-	  "d":{
-		"writable":false
-	  }
-	});
+    this.n=value[0];//numerator
+    this.d=value[1];//denominator
+    Object.defineProperties(this,{
+      "n":{
+        "writable":false
+      },
+      "d":{
+        "writable":false
+    }
+    });
     //define closure function for read the value;
   }
   toString(){
