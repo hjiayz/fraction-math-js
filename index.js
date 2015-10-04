@@ -101,13 +101,13 @@ class F {
     catch (e){
       value=[BNaN,BNaN];
     }
-    this.n=value[0];//numerator
-    this.d=value[1];//denominator
     Object.defineProperties(this,{
       "n":{
+        "value":value[0],//numerator
         "writable":false
       },
       "d":{
+        "value":value[1],//denominator
         "writable":false
       }
     });
@@ -119,6 +119,9 @@ class F {
     return [this.n.toFixed(),this.d.toFixed()].join("/");
   }
   toJSON(){
+    return this.toString();
+  }
+  valueOf(){
     return this.toString();
   }
   toBigNumber(){

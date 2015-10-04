@@ -1,7 +1,7 @@
 "use strict"
 let Frac=require("../").builder;
 let assert=require('assert');
-assert.ok((Frac("-1 + ( 2 + 3 ) * 5").toString())==="24","-1 + ( 2 + 3 ) * 5 = 24");//Infix -1+(2+3)*5=-1+5*5=-1+25=24
+assert.ok(Frac("-1 + ( 2 + 3 ) * 5").toString()==="24","-1 + ( 2 + 3 ) * 5 = 24");//Infix -1+(2+3)*5=-1+5*5=-1+25=24
 assert.ok(Frac("1 / 2").toString()==="1/2","1 / 2 = 1/2");//Infix 1/2=(1/2)
 assert.ok(Frac("-1.1 + 1.1").toString()==="0","-1.1 + 1.1 = 0");//decimal -1.1+1.1=0
 assert.ok(Frac("1.1","1.1").toString()==="1","1.1 , 1.1 = 1");//decimal 1.1/1.1=1
