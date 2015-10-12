@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fraction-math-js by hjiayz</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Fraction-math-js</h1>
+        <p class="header"></p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/hjiayz/fraction-math-js/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/hjiayz/fraction-math-js/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/hjiayz/fraction-math-js">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/hjiayz">hjiayz</a></p>
+
+
+      </header>
+      <section>
+        <h2>
+<a id="fraction-math-js" class="anchor" href="#fraction-math-js" aria-hidden="true"><span class="octicon octicon-link"></span></a>fraction-math-js</h2>
+
+<p>bignumber fraction calculator and node module.</p>
+
+<h3>
+<a id="need-es6-support" class="anchor" href="#need-es6-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>need ES6 support!</h3>
+
+<pre><code>node4.1.1 arguments:
+    --harmony --harmony_array_includes
+</code></pre>
+
+<h3>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h3>
+
+<p>npm install fraction-math-js -g</p>
+
+<h3>
+<a id="repl" class="anchor" href="#repl" aria-hidden="true"><span class="octicon octicon-link"></span></a>REPL</h3>
+
+<pre><code>&gt; fcalc
+</code></pre>
+
+<h6>
+<a id="input-expressionlike" class="anchor" href="#input-expressionlike" aria-hidden="true"><span class="octicon octicon-link"></span></a>input expression,like:</h6>
+
+<pre><code>fcalc&gt; (1+1)*2/12
+
+(1+1)*2/12  =  1/3
+</code></pre>
+
+<h3>
+<a id="load" class="anchor" href="#load" aria-hidden="true"><span class="octicon octicon-link"></span></a>Load</h3>
+
+<pre><code>"use strict"
+
+let F = require('fraction-math-js').builder;
+</code></pre>
+
+<h3>
+<a id="use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h3>
+
+<pre><code>let x=F("1+2/3*5");//1+2/3*5 = 13/3 Infix
+
+let y=F("1+",x);//1+x = 16/3
+
+let z=F("+",1,y);//1+y = 19/3 Prefix
+
+let a=F(y,z,"+");//y+z = 35/3 Postfix
+
+console.log("%s",F("+ 1 1"));//1+1=2 postfix and prefix need space
+
+console.log(a.toString());//35/3
+
+console.log(a.n.toString());//35
+
+console.log(a.d.toString());//3
+
+let b=F(a,"+",1.1);//a+1.1 = 383/30
+
+console.log(b.toString());//383/30
+
+console.log(b.toBigNumber().toNumber());//12.766666666666667
+</code></pre>
+
+<h3>
+<a id="run" class="anchor" href="#run" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run</h3>
+
+<pre><code>//save to sample.js and
+
+&gt; node --harmony --harmony_array_includes sample.js
+</code></pre>
+
+<h3>
+<a id="browseramd" class="anchor" href="#browseramd" aria-hidden="true"><span class="octicon octicon-link"></span></a>browser(AMD)</h3>
+
+<pre><code>&lt;!--write to amd.html--&gt;
+
+&lt;script src="./lib/browser-polyfill.min.js" &gt;&lt;/script&gt;
+
+&lt;script src="./lib/require.js"&gt;&lt;/script&gt;
+
+&lt;!--load babel-polyfill and require.js for es6 and AMD--&gt;
+
+&lt;script&gt;
+
+//load bignumber
+
+define("bignumber.js",["./lib/bignumber.min.js"],function(b){return b;});
+
+//load fraction-math-js
+
+require(["../fraction-math-js-es5.min.js"],function(fraction){
+
+    var F=fraction.builder;
+
+    document.write(F("1 + 1 / 3").toString());
+
+});
+
+&lt;/script&gt;
+</code></pre>
+
+<h3>
+<a id="browserglobal" class="anchor" href="#browserglobal" aria-hidden="true"><span class="octicon octicon-link"></span></a>browser(global)</h3>
+
+<pre><code>&lt;!--write to global.html--&gt;
+
+&lt;script src="./lib/browser-polyfill.min.js" &gt;&lt;/script&gt;
+
+&lt;script src="./lib/bignumber.min.js"&gt;&lt;/script&gt;
+
+&lt;script src="../fraction-math-js-es5.min.js"&gt;&lt;/script&gt;
+
+&lt;!--load babel-polyfill , bignumber.js and fraction-math-js--&gt;
+
+&lt;!--fraction-math-js bind to window.FractionMathJs--&gt;
+
+&lt;script&gt;
+
+var F=window.FractionMathJs.builder;
+
+document.write(F("1 + 1 / 3").toString());
+
+&lt;/script&gt;
+</code></pre>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
