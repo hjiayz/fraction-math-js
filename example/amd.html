@@ -1,0 +1,19 @@
+<body>
+<input type="text" value="1 + 1" id="input" /><button type="submit" onclick="window.calc()">calc</button>
+<div id="output"></div>
+</body>
+<script src="./lib/browser-polyfill.min.js" ></script>
+<script src="./lib/require.js"></script>
+<script>
+(function(){
+  var i=document.getElementById("input");
+  var o=document.getElementById("output");
+  define("bignumber.js",["./lib/bignumber.min.js"],function(b){return b;});//load bignumber
+  window.calc=function(){
+    require(["../fraction-math-js-es5.min.js"],function(fraction){//load fraction-math-js
+      var F=fraction.builder;
+      o.innerHTML = F(i.value).toString();
+    })
+  }
+})();
+</script>

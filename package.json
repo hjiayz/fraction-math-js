@@ -1,20 +1,22 @@
 {
   "name": "fraction-math-js",
-  "version": "0.1.10",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "node --harmony --harmony_array_includes test/test.js",
-    "fcalc": "node --harmony --harmony_array_includes bin/fcalc"
+    "fcalc": "node --harmony --harmony_array_includes bin/fcalc",
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hjiayz/fraction-math-js.git"
   },
   "keywords": [
-    "fraction","calculator"
+    "fraction",
+    "calculator"
   ],
-  "bin":{
+  "bin": {
     "fcalc": "./bin/fcalc.js"
   },
   "author": "hjiayz",
@@ -25,5 +27,9 @@
   "homepage": "https://github.com/hjiayz/fraction-math-js#readme",
   "dependencies": {
     "bignumber.js": "^2.0.7"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "uglify-js": "^2.4.24"
   }
 }

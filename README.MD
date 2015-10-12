@@ -55,3 +55,53 @@ npm install fraction-math-js -g
 	//save to sample.js and
   
 	> node --harmony --harmony_array_includes sample.js
+
+### browser(AMD)
+
+	<!--write to amd.html-->
+  
+	<script src="./lib/browser-polyfill.min.js" ></script>
+  
+	<script src="./lib/require.js"></script>
+  
+	<!--load babel-polyfill and require.js for es6 and AMD-->
+  
+	<script>
+  
+	//load bignumber
+
+	define("bignumber.js",["./lib/bignumber.min.js"],function(b){return b;});
+
+	//load fraction-math-js
+  
+	require(["../fraction-math-js-es5.min.js"],function(fraction){
+ 
+    	var F=fraction.builder;
+    
+    	document.write(F("1 + 1 / 3").toString());
+  
+	});
+  
+	</script>
+  
+### browser(global)
+
+	<!--write to global.html-->
+  
+	<script src="./lib/browser-polyfill.min.js" ></script>
+
+	<script src="./lib/bignumber.min.js"></script>
+
+	<script src="../fraction-math-js-es5.min.js"></script>
+  
+	<!--load babel-polyfill , bignumber.js and fraction-math-js-->
+  
+	<!--fraction-math-js bind to window.FractionMathJs-->
+  
+	<script>
+
+	var F=window.FractionMathJs.builder;
+  
+	document.write(F("1 + 1 / 3").toString());
+  
+	</script>
