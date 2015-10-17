@@ -1,5 +1,7 @@
 ## fraction-math-js
 
+[![Build Status](https://travis-ci.org/hjiayz/fraction-math-js.svg?branch=master)](https://travis-ci.org/hjiayz/fraction-math-js)
+
 bignumber fraction calculator and node module.
 
 ### need ES6 support!
