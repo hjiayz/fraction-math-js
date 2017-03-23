@@ -57,7 +57,7 @@ npm install fraction-math-js -g
 
 	//save to sample.js and
   
-	> node --harmony --harmony_array_includes sample.js
+	> node sample.js
 
 ### browser(AMD)[view demo](http://hjiayz.github.io/fraction-math-js/example/amd.html)
 
