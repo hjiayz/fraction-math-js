@@ -1,4 +1,4 @@
-#!/usr/bin/env node --harmony
+#!/usr/bin/env node
 "use strict"
 let readline = require('readline');
 let Frac=require("../").builder;
