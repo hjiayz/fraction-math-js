@@ -8,6 +8,7 @@ bignumber fraction calculator and node module.
 
 	node4.1.1 arguments:
 		--harmony --harmony_array_includes
+	node7.6.0 no arguments.
     
 ### Install
 
