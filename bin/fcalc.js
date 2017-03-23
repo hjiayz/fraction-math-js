@@ -1,4 +1,4 @@
-#!/usr/bin/env node --harmony --harmony_array_includes
+#!/usr/bin/env node --harmony
 "use strict"
 let readline = require('readline');
 let Frac=require("../").builder;
